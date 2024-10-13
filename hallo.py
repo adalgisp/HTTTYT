@@ -12,6 +12,7 @@ import socketserver
 root = tk.Tk()
 root.title("Medical Application")
 root.geometry("400x500")  # Đặt kích thước cửa sổ
+root.config(bg="#C3D3B7")  # Thay đổi màu nền của cửa sổ chính
 
 # Biến toàn cục để lưu folder của bệnh nhân
 user_folder = ""
@@ -129,50 +130,50 @@ server_thread.daemon = True
 server_thread.start()
 
 # Tạo khung cho giao diện
-frame = tk.Frame(root, padx=10, pady=10)
+frame = tk.Frame(root, padx=10, pady=10, bg="#F4F3E1")
 frame.pack(pady=20)
 
 # Giao diện nhập thông tin bệnh nhân
-tk.Label(frame, text="Thông tin bệnh nhân", font=("Arial", 16)).grid(row=0, column=0, columnspan=2, pady=10)
+tk.Label(frame, text="Thông tin bệnh nhân", font=("Arial", 16), fg="black",bg="#F4F3E1").grid(row=0, column=0, columnspan=2, pady=10)
 
-tk.Label(frame, text="Tên bệnh nhân:").grid(row=1, column=0, sticky="w", padx=5, pady=5)
+tk.Label(frame, text="Tên bệnh nhân:", bg="#F4F3E1").grid(row=1, column=0, sticky="w", padx=5, pady=5)
 name_entry = tk.Entry(frame)
 name_entry.grid(row=1, column=1, pady=5)
 
-tk.Label(frame, text="Ngày sinh (DD/MM/YYYY):").grid(row=2, column=0, sticky="w", padx=5, pady=5)
+tk.Label(frame, text="Ngày sinh (DD/MM/YYYY):", bg="#F4F3E1").grid(row=2, column=0, sticky="w", padx=5, pady=5)
 dob_entry = tk.Entry(frame)
 dob_entry.grid(row=2, column=1, pady=5)
 
-tk.Label(frame, text="CCCD:").grid(row=3, column=0, sticky="w", padx=5, pady=5)
+tk.Label(frame, text="CCCD:", bg="#F4F3E1").grid(row=3, column=0, sticky="w", padx=5, pady=5)
 cccd_entry = tk.Entry(frame)
 cccd_entry.grid(row=3, column=1, pady=5)
 
-tk.Label(frame, text="Cân nặng (kg):").grid(row=4, column=0, sticky="w", padx=5, pady=5)
+tk.Label(frame, text="Cân nặng (kg):", bg="#F4F3E1").grid(row=4, column=0, sticky="w", padx=5, pady=5)
 weight_entry = tk.Entry(frame)
 weight_entry.grid(row=4, column=1, pady=5)
 
-tk.Label(frame, text="Chiều cao (cm):").grid(row=5, column=0, sticky="w", padx=5, pady=5)
+tk.Label(frame, text="Chiều cao (cm):", bg="#F4F3E1").grid(row=5, column=0, sticky="w", padx=5, pady=5)
 height_entry = tk.Entry(frame)
 height_entry.grid(row=5, column=1, pady=5)
 
 # Chọn giới tính
 gender_var = tk.StringVar()
-tk.Label(frame, text="Giới tính:").grid(row=6, column=0, sticky="w", padx=5, pady=5)
-tk.Radiobutton(frame, text="Nam", variable=gender_var, value="Nam").grid(row=6, column=1, sticky="w", padx=5, pady=5)
-tk.Radiobutton(frame, text="Nữ", variable=gender_var, value="Nữ").grid(row=6, column=1, padx=70, pady=5)
+tk.Label(frame, text="Giới tính:", bg="#F4F3E1").grid(row=6, column=0, sticky="w", padx=5, pady=5)
+tk.Radiobutton(frame, text="Nam", variable=gender_var, value="Nam", bg="#F4F3E1").grid(row=6, column=1, sticky="w", padx=5, pady=5)
+tk.Radiobutton(frame, text="Nữ", variable=gender_var, value="Nữ", bg="#F4F3E1").grid(row=6, column=1, padx=70, pady=5)
 
 # Checkbox có bảo hiểm hay không
 insurance_var = tk.IntVar()
-tk.Checkbutton(frame, text="Có bảo hiểm", variable=insurance_var).grid(row=7, column=0, columnspan=2, pady=5)
+tk.Checkbutton(frame, text="Có bảo hiểm", variable=insurance_var, bg="#F4F3E1").grid(row=7, column=0, columnspan=2, pady=5)
 
 # Nút tạo folder
-tk.Button(frame, text="Tạo Folder", command=create_folder, width=20, bg="lightblue").grid(row=8, column=0, columnspan=2, pady=10)
+tk.Button(frame, text="Tạo Folder", command=create_folder, width=20, bg="#F9C5CA").grid(row=8, column=0, columnspan=2, pady=10)
 
 # Nút chụp ảnh
-tk.Button(frame, text="Chụp ảnh", command=capture_image, width=20, bg="lightgreen").grid(row=9, column=0, columnspan=2, pady=10)
+tk.Button(frame, text="Chụp ảnh", command=capture_image, width=20, bg="#B0D1D8").grid(row=9, column=0, columnspan=2, pady=10)
 
 # Nút lưu thông tin bệnh nhân
-tk.Button(frame, text="Lưu thông tin", command=save_patient_info, width=20, bg="lightyellow").grid(row=10, column=0, columnspan=2, pady=10)
+tk.Button(frame, text="Lưu thông tin", command=save_patient_info, width=20, bg="#F7D0B1").grid(row=10, column=0, columnspan=2, pady=10)
 
 # Khởi động Tkinter
 root.mainloop()
